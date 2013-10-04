@@ -48,7 +48,7 @@ test("can make a function return a primitive", function(){
 })
 
 test("can make a function return an object", function(){
-	
+
 	var f = function(){
 		return {
 			x: function(val){
@@ -64,5 +64,19 @@ test("can make a function return an object", function(){
 	var val = sut.x(mock);
 
 	ok(val.exists === true)
+
+})
+
+test("can make a function return a function", function(){
+
+	var o = function(func){
+		return func;
+	}
+
+	var mock = mouse.mocks.returns(function(){return "123"})
+
+	var val = o(mock);
+
+	ok(typeof val === 'function')
 
 })
