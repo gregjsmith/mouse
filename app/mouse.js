@@ -4,6 +4,11 @@ mouse.mocks = function(){
 	var calls = []
 	var funcs = []
 
+	var resetState = function(){
+		calls = []
+		funcs = []
+	}
+	
 	var createMock = function(key, context, origfunc){
 		var f = function() {
 			calls.push({key: key})
@@ -43,6 +48,8 @@ mouse.mocks = function(){
 				};
 			})
 		};
+		
+		resetState();
 
 		return (fName === site.name) && (thisCalled === site.times);
 	}
