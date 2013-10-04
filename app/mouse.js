@@ -8,7 +8,7 @@ mouse.mocks = function(){
 		calls = []
 		funcs = []
 	}
-	
+
 	var createMock = function(key, context, origfunc){
 		var f = function() {
 			calls.push({key: key})
@@ -54,9 +54,19 @@ mouse.mocks = function(){
 		return (fName === site.name) && (thisCalled === site.times);
 	}
 
+	var returns = function(retVal){
+
+		var f = function(){
+			return retVal;
+		}
+
+		return f;
+	}
+
 	return {
 		watch: watch,
-		called: called
+		called: called,
+		returns: returns
 	}
 
 }();

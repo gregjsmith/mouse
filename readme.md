@@ -3,8 +3,7 @@
 #### Tiny Javascript mocking library
 
 
-So far, only one method!
-
+Test a method was called once:
 
     var hello = {
 	    sayit: function(){
@@ -18,3 +17,35 @@ So far, only one method!
     hello.sayit();
 
     ok(mock.called({name: 'sayit', times: 1}))
+
+
+
+    var Mod = function(){
+    	return {
+    		switchOn: function(){
+
+    		}
+    	}
+    }
+
+    var m = new Mod();
+
+    m.switchOn();
+
+    ok(mock.called({name: 'switchOn', times: 1}))
+	
+
+or that a method wasn't called:
+
+	var Mod = function(){
+    	return {
+    		switchOn: function(){
+
+    		}
+    	}
+    }
+
+    var m = new Mod();
+
+    ok(mock.called({name: 'switchOn', times: 0}))
+	
