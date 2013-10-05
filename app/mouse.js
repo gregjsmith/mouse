@@ -70,3 +70,6 @@ mouse.mocks = function(){
 	}
 
 }();
+
+
+module.exports = mouse;
