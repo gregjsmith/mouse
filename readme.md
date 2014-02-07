@@ -27,8 +27,10 @@ Test a method was called once:
     		}
     	}
     }
-
+    
     var m = new Mod();
+
+    var mock = mouse.mocks.watch(m);
 
     m.switchOn();
 
@@ -44,8 +46,10 @@ or that a method wasn't called:
     		}
     	}
     }
-
+    
     var m = new Mod();
+
+    var mock = mouse.mocks.watch(m);
 
     ok(mock.called({name: 'switchOn', times: 0}))
 	
